@@ -4,11 +4,11 @@ import 'dart:convert';
 import 'package:bemol_test/src/data/storages/local_cache_contract.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-typedef CacheMap = Map<String, dynamic>;
+typedef SPCacheObj = Map<String, dynamic>;
 
-class SPLocalCache implements LocalCacheContract<CacheMap> {
+class SPLocalCache implements LocalCacheContract<SPCacheObj> {
   @override
-  FutureOr<CacheMap?> get(String key) async {
+  FutureOr<SPCacheObj?> get(String key) async {
     final cache = await SharedPreferences.getInstance();
     final object = cache.getString(key);
 
@@ -17,7 +17,7 @@ class SPLocalCache implements LocalCacheContract<CacheMap> {
     try {
       final decodedObject = jsonDecode(object);
 
-      return decodedObject as CacheMap;
+      return decodedObject as SPCacheObj;
     } catch (_) {
       return null;
     }
@@ -31,7 +31,7 @@ class SPLocalCache implements LocalCacheContract<CacheMap> {
   }
 
   @override
-  FutureOr<void> save(String key, CacheMap data) async {
+  FutureOr<void> save(String key, SPCacheObj data) async {
     final cache = await SharedPreferences.getInstance();
     final encodedData = jsonEncode(data);
 
