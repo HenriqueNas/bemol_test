@@ -1,5 +1,6 @@
 import 'package:bemol_test/app/app.dart';
 import 'package:bemol_test/l10n/l10n.dart';
+import 'package:bemol_test/src/presenter/view/pages/home/home.dart';
 import 'package:flutter/material.dart';
 
 class BemolApp extends StatelessWidget {
@@ -18,7 +19,10 @@ class _BemolMaterialApp extends StatelessWidget {
       theme: lightTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // home: const CounterPage(),
+      initialRoute: AppRoutes.home,
+      routes: {
+        AppRoutes.home: (_) => const HomePage(),
+      },
     );
   }
 }
