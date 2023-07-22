@@ -1,5 +1,7 @@
-import 'package:bemol_test/src/domain/entity.dart';
+import 'package:bemol_test/src/domain/entities/entity.dart';
+import 'package:flutter/foundation.dart';
 
+@immutable
 class Product implements Entity {
   const Product({
     this.id,
@@ -21,4 +23,15 @@ class Product implements Entity {
 
   @override
   bool get isValid => id.isNotNull && id!.isNotEmpty;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Product && //
+        other.id == id;
+  }
+
+  @override
+  int get hashCode => id.hashCode;
 }
