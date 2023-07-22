@@ -1,7 +1,10 @@
 {
     "@@locale": "pt",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
-    }
+    "homeAppBar": "Produtos",
+    "homeSearchHint": "Pesquisar qualquer coisa",
+    "homeReviews": "Avaliações",
+    "favoritesAppBar": "Favoritos",
+    "errorListIsEmpty": "Lista vazia",
+    "errorUnknown": "Algo deu errado",
+    "errorGoHome": "Ir para a página inicial"
 }

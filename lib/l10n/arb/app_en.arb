@@ -1,7 +1,10 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "productAppBar": "Products",
+    "productSearchHint": "Search Anything",
+    "productReviews": "Reviews",
+    "favoritesAppBar": "Favorites",
+    "errorListIsEmpty": "List is empty",
+    "errorUnknown": "Something went wrong",
+    "errorGoHome": "Go Home"
 }
