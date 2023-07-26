@@ -12,11 +12,16 @@ class GetAllProducts implements UseCase<ProductsFailure, List<Product>, void> {
 
   @override
   FutureOr<Either<ProductsFailure, List<Product>>> call({void param}) async {
-    final result = await _http.get<List<Product>>('/products');
+    try {
+      final result = await _http.get<List<dynamic>>('/products');
 
-    if (result.data is List<Product>) {
-      return right(result.data as List<Product>);
-    } else {
+      final listOfMap = (result.data as List) //
+          .whereType<Map<String, dynamic>>();
+
+      final products = listOfMap.map(Product.fromMap).toList();
+
+      return right(products);
+    } catch (_) {
       return left(const NoProductsFoundFailure());
     }
   }

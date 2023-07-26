@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('products instances with same id should be equal', () {
-    const id = 'random-id';
+    const id = 1;
 
     const product1 = Product(id: id);
     const product2 = Product(id: id);
@@ -12,8 +12,8 @@ void main() {
   });
 
   test('products instances with different id should not be equal', () {
-    const product1 = Product(id: 'random-id-1');
-    const product2 = Product(id: 'random-id-2');
+    const product1 = Product(id: 2);
+    const product2 = Product(id: 3);
 
     expect(product1, isNot(product2));
   });

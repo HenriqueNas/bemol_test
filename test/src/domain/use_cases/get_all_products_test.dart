@@ -8,24 +8,48 @@ import 'package:bemol_test/src/domain/use_cases/get_all_products.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  setUpAll(
-    () => {
-      dependencies.register<HttpClientContract>(_MockHttpClient()),
-    },
-  );
+  group('mocked Http HTTP Client tests', () {
+    setUpAll(() {
+      dependencies.register<HttpClientContract>(
+        _MockHttpClient(),
+      );
+    });
 
-  testWidgets(
-    'when try to get all products, should return a non empty List<Products>',
-    (tester) async {
-      final getAllProducts = GetAllProducts();
-      final result = await getAllProducts();
+    test(
+      'when try to get all products, should return a non empty List<Products>',
+      () async {
+        final getAllProducts = GetAllProducts();
+        final result = await getAllProducts();
 
-      expect(result.isRight(), isTrue);
+        expect(result.isRight(), isTrue);
 
-      final products = result.getOrElse(() => []);
-      expect(products, isA<List<Product>>());
-    },
-  );
+        final products = result.getOrElse(() => []);
+        expect(products, isA<List<Product>>());
+      },
+    );
+  });
+
+  group('integration tests with Dio HTTP Client', () {
+    setUpAll(() {
+      const baseUrl = 'https://fakestoreapi.com';
+      final dioClient = DioHttpClient(baseUrl);
+
+      dependencies.register<HttpClientContract>(dioClient);
+    });
+
+    test(
+      'when try to get all products, should return a non empty List<Products>',
+      () async {
+        final getAllProducts = GetAllProducts();
+        final result = await getAllProducts();
+
+        expect(result.isRight(), isTrue);
+
+        final products = result.getOrElse(() => []);
+        expect(products, isA<List<Product>>());
+      },
+    );
+  });
 }
 
 class _MockHttpClient implements HttpClientContract<_MockHttpResponseContract> {
