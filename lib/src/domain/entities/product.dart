@@ -37,7 +37,13 @@ class Product implements Entity {
   final String? description;
 
   @override
-  bool get isValid => id.isNotNull;
+  bool get isValid {
+    return id.isNotNull &&
+        title.isNotNull &&
+        price.isNotNull &&
+        rating.isNotNull &&
+        imageUrl.isNotNull;
+  }
 
   @override
   bool operator ==(Object other) {
