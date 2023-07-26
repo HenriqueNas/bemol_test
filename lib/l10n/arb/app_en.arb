@@ -2,7 +2,7 @@
     "@@locale": "en",
     "productAppBar": "Products",
     "productSearchHint": "Search Anything",
-    "productReviews": "Reviews",
+    "productReviews": "reviews",
     "favoritesAppBar": "Favorites",
     "errorListIsEmpty": "List is empty",
     "errorUnknown": "Something went wrong",
