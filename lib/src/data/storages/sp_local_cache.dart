@@ -6,9 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 typedef SPCacheObj = Map<String, dynamic>;
 
-class SPLocalCache implements LocalCacheContract<SPCacheObj> {
+class SPLocalCache implements LocalCacheContract {
   @override
-  FutureOr<SPCacheObj?> get(String key) async {
+  FutureOr<T?> get<T>(String key) async {
     final cache = await SharedPreferences.getInstance();
     final object = cache.getString(key);
 
@@ -17,7 +17,7 @@ class SPLocalCache implements LocalCacheContract<SPCacheObj> {
     try {
       final decodedObject = jsonDecode(object);
 
-      return decodedObject as SPCacheObj;
+      return decodedObject as T;
     } catch (_) {
       return null;
     }
@@ -31,7 +31,7 @@ class SPLocalCache implements LocalCacheContract<SPCacheObj> {
   }
 
   @override
-  FutureOr<void> save(String key, SPCacheObj data) async {
+  FutureOr<void> save<T>(String key, T data) async {
     final cache = await SharedPreferences.getInstance();
     final encodedData = jsonEncode(data);
 

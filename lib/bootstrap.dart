@@ -16,7 +16,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   dependencies
     ..register(ProductStores())
-    ..register<LocalCacheContract<SPCacheObj>>(SPLocalCache())
+    ..register<LocalCacheContract>(SPLocalCache())
     ..register<HttpClientContract>(
       DioHttpClient(apiBaseUrl),
     );
