@@ -19,7 +19,7 @@ void main() {
       'when try to get all products, should return a non empty List<Products>',
       () async {
         final getAllProducts = GetAllProducts();
-        final result = await getAllProducts();
+        final result = await getAllProducts(null);
 
         expect(result.isRight(), isTrue);
 
@@ -41,7 +41,7 @@ void main() {
       'when try to get all products, should return a non empty List<Products>',
       () async {
         final getAllProducts = GetAllProducts();
-        final result = await getAllProducts();
+        final result = await getAllProducts(null);
 
         expect(result.isRight(), isTrue);
 
