@@ -11,6 +11,8 @@ final ThemeData lightTheme = ThemeData(
 );
 
 final appBar = AppBarTheme(
+  centerTitle: false,
+  elevation: 0,
   backgroundColor: BemolColors.background,
   foregroundColor: BemolColors.onBackground,
   titleTextStyle: TextStyle(
@@ -43,3 +45,11 @@ final inputDecoration = InputDecorationTheme(
     vertical: 14,
   ),
 );
+
+extension TextStyleHelpers on TextStyle {
+  TextStyle? get bold => copyWith(fontWeight: FontWeight.bold);
+
+  TextStyle? get ratingStyle => bold?.copyWith(
+        color: BemolColors.onSurface.withOpacity(0.72),
+      );
+}

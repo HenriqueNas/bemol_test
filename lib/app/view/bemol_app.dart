@@ -1,6 +1,6 @@
 import 'package:bemol_test/app/app.dart';
 import 'package:bemol_test/l10n/l10n.dart';
-import 'package:bemol_test/src/presenter/view/pages/home/home.dart';
+import 'package:bemol_test/src/presenter/view/pages/pages.dart';
 import 'package:flutter/material.dart';
 
 class BemolApp extends StatelessWidget {
@@ -22,6 +22,8 @@ class _BemolMaterialApp extends StatelessWidget {
       initialRoute: AppRoutes.home,
       routes: {
         AppRoutes.home: (_) => const HomePage(),
+        AppRoutes.favorites: (_) => const FavoritesPage(),
+        AppRoutes.error: (_) => const ErrorPage(),
       },
     );
   }
