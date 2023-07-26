@@ -18,4 +18,11 @@ class Rating implements Entity {
 
   @override
   bool get isValid => true;
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'rate': rate,
+      'count': count,
+    };
+  }
 }

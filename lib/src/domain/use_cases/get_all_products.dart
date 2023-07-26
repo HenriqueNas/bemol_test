@@ -11,7 +11,7 @@ class GetAllProducts implements UseCase<ProductsFailure, List<Product>, void> {
   final _http = dependencies.get<HttpClientContract>();
 
   @override
-  FutureOr<Either<ProductsFailure, List<Product>>> call({void param}) async {
+  FutureOr<Either<ProductsFailure, List<Product>>> call(void param) async {
     try {
       final result = await _http.get<List<dynamic>>('/products');
 

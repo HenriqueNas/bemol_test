@@ -49,4 +49,16 @@ class Product implements Entity {
 
   @override
   int get hashCode => id.hashCode;
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'title': title,
+      'price': price,
+      'category': category,
+      'rating': rating?.toMap(),
+      'image': imageUrl,
+      'description': description,
+    };
+  }
 }
